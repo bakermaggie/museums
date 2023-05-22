@@ -45,7 +45,7 @@ RENAME COLUMN `2018 Population` TO population;
 /*---Top 5 states/districts with highest average revenue---------------------------------*/
 /*---------------------------------------------------------------------------------------*/
 SELECT
-	COALESCE(NULLIF(physical_state, ''), admin_state) AS state, -- Clean state identifier of empty strings
+    COALESCE(NULLIF(physical_state, ''), admin_state) AS state, -- Clean state identifier of empty strings
     AVG(Revenue) AS avg_state_revenue
 FROM project.museums
 GROUP BY state
@@ -56,7 +56,7 @@ LIMIT 5;
 /*---Top 5 states/districts with highest average expenses--------------------------------*/
 /*---------------------------------------------------------------------------------------*/
 SELECT
-	COALESCE(NULLIF(physical_state, ''), admin_state) AS state, -- Clean state identifier of empty strings
+    COALESCE(NULLIF(physical_state, ''), admin_state) AS state, -- Clean state identifier of empty strings
     AVG(income-revenue) AS avg_state_expenses
 FROM project.museums
 GROUP BY state
@@ -67,7 +67,7 @@ LIMIT 5;
 /*---Top 5 states/districts with highest expense to income ratio-------------------------*/
 /*---------------------------------------------------------------------------------------*/
 SELECT
-	COALESCE(NULLIF(physical_state, ''), admin_state) AS state, -- Clean state identifier of empty strings
+    COALESCE(NULLIF(physical_state, ''), admin_state) AS state, -- Clean state identifier of empty strings
     AVG (income-revenue),
     AVG (income),
     AVG( (income-revenue)/income ) AS expense_ratio
@@ -111,17 +111,17 @@ ALTER TABLE state_populations
        WHEN State = 'Maryland' THEN 'MD'
        WHEN State = 'Massachusetts' THEN 'MA'
        WHEN State = 'Michigan' THEN 'MI'
-	   WHEN State = 'Minnesota' THEN 'MN'
+       WHEN State = 'Minnesota' THEN 'MN'
        WHEN State = 'Mississippi' THEN 'MS'
        WHEN State = 'Missouri' THEN 'MO'
-	   WHEN State = 'Montana' THEN 'MT'
+       WHEN State = 'Montana' THEN 'MT'
        WHEN State = 'Nebraska' THEN 'NE'
        WHEN State = 'Nevada' THEN 'NV'
-	   WHEN State = 'New Hampshire' THEN 'NH'
+       WHEN State = 'New Hampshire' THEN 'NH'
        WHEN State = 'New Jersey' THEN 'NJ'
        WHEN State = 'New Mexico' THEN 'NM'
        WHEN State = 'New York' THEN 'NY'
-	   WHEN State = 'North Carolina' THEN 'NC'
+       WHEN State = 'North Carolina' THEN 'NC'
        WHEN State = 'North Dakota' THEN 'ND'
        WHEN State = 'Ohio' THEN 'OH'
        WHEN State = 'Oklahoma' THEN 'OK'
